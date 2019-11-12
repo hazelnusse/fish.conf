@@ -6,13 +6,10 @@ then
     rm -rf "${FISH_DIR}"
 fi
 
-mkdir -p "${FISH_DIR}/functions"
+mkdir -p ${FISH_DIR}
 
 CURRENT_DIR="$(pwd)"
 
 ln -s "${CURRENT_DIR}/config.fish" "${FISH_DIR}/config.fish"
-
-for f in ${CURRENT_DIR}/functions/*.fish
-do
-    ln -s "${f}" "${FISH_DIR}/functions/"
-done
+ln -s "${CURRENT_DIR}/functions" "${FISH_DIR}/functions"
+ln -s "${CURRENT_DIR}/conf.d" "${FISH_DIR}/conf.d"
